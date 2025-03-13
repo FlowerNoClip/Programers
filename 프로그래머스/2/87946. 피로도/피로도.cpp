@@ -4,26 +4,28 @@
 using namespace std;
 
 int solution(int k, vector<vector<int>> dungeons) {
-    int answer = -1;
+    int answer = 0;
     sort(dungeons.begin(), dungeons.end());
-    
     do{
-        int cnt = 0;
         int k_c = k;
+        int cnt = 0;
         for(int i = 0; i < dungeons.size(); i++)
         {
-            if(k_c >= dungeons[i][0])
+            if(dungeons[i][0] <=  k_c)
             {
                 k_c -= dungeons[i][1];
-                cnt++;
+                cnt ++;
             }
+            else
+            {
+                break;
+            }
+
         }
-        
-        if(cnt >= answer)
-        {
-            answer = cnt;
-        }
+       answer = max(answer, cnt); 
     }while(next_permutation(dungeons.begin(), dungeons.end()));
-           
+    
+
+
     return answer;
 }
