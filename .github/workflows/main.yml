@@ -13,5 +13,5 @@ jobs:
        uses: peter-evans/repository-dispatch@v1
        with:
          token: ${{ secrets.GH_PAT }}
-         repository: {FlowerNoClip}/Programmers_Badge_Generator
+         repository: FlowerNoClip/Programmers
          event-type: trigger-workflow
