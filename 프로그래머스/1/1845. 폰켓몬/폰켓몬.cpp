@@ -1,7 +1,6 @@
 #include <vector>
-#include <unordered_map>
 #include <unordered_set>
-
+#include <algorithm>
 using namespace std;
 
 int solution(vector<int> nums)
@@ -11,7 +10,5 @@ int solution(vector<int> nums)
     {
         set.insert(num);
     }
-    
-    
-    return min(nums.size() / 2 , set.size());
+    return min(nums.size() / 2, set.size());
 }
