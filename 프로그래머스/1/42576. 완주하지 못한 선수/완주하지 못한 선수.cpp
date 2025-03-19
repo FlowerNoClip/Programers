@@ -5,26 +5,22 @@ using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
-    unordered_map<string, int> hashMap;
+    unordered_map<string, int> map;
     
-    for(auto& name : participant)
+    for(auto& v : participant)
     {
-        hashMap[name] ++;
+        map[v]++;
     }
     
-    for(auto& name : completion)
+    for(auto& v : completion)
     {
-        hashMap[name] --;
+        map[v]--;
     }
-    
-    for (auto& pair : hashMap) {
-    if (pair.second > 0) {
-        
-        return pair.first; // 완주하지 못한 사람의 이름
+    for(auto& v : map)
+    {
+        if(v.second > 0)
+        {
+            return v.first;
+        }
     }
-    }
-    
-    
-    
-    return answer;
 }
