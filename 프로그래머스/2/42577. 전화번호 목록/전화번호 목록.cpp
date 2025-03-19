@@ -1,24 +1,25 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <unordered_set>
+#include <algorithm>
+
 using namespace std;
 
 bool solution(vector<string> phone_book) {
     unordered_set<string> set;
     
-    for(auto& v : phone_book)
+    for(auto& v:phone_book)
     {
         set.insert(v);
     }
     
-    for(const string& phone : phone_book)
+    for(auto& v : set)
     {
         string perfix = "";
-        for(int i = 0; i < phone.size(); i++)
+        for(int i = 0; i < v.size(); i++)
         {
-            perfix += phone[i];
-            if(set.find(perfix) != set.end() && perfix != phone)
+            perfix += v[i];
+            if(set.find(perfix) != set.end() && perfix != v)
             {
                 return false;
             }
